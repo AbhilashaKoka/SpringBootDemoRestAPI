@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 import com.example.demo.bean.Book;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -118,6 +119,21 @@ public class BookController {
                     "https://leanpub.com/understandinges6/read"
             ));
             return books;
+        }
+
+
+       @GetMapping("books/{id}/{isbn}")
+        public Book bookPathVariable(@PathVariable int id,
+                                     @PathVariable String isbn){
+        return new Book(id,isbn,
+                "Designing Evolvable Web APIs with ASP.NET",
+                "Harnessing the Power of the Web",
+                "Glenn Block et al.",
+                "2020-06-04T09:12:43.000Z",
+                "O'Reilly Media",
+                238,
+                "Design and build Web APIs for a broad range of clients—including browsers and mobile devices—that can adapt to change over time. This practical, hands-on guide takes you through the theory and tools you need to build evolvable HTTP services with Microsoft",
+                "http://chimera.labs.oreilly.com/books/1234000001708/index.html");
         }
     }
 
