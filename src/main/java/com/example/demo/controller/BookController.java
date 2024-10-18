@@ -141,8 +141,18 @@ public class BookController {
 
                }
 
+              @PutMapping("books/{id}/{isbn}")
+
+               public Book UpdateBookWithISBN(@RequestBody Book book, @PathVariable int id,@PathVariable  String isbn) {
+                   System.out.println(book.getId());
+                   System.out.println(book.getIsbn());
+                   return book;
+               }
+
+               }
 
 
 
-    }
+
+
 
